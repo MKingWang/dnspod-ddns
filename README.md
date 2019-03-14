@@ -17,5 +17,5 @@ subdomain = www;记录值 默认www, 留空为@
 ## 0x02 crontab配置
 ```bash
 #例如：将二进制文件和配置文件放在,/opt/dnspod
-*/10 * * * * cd /opt/dnspod;./dnspod-dns
+*/10 * * * * /opt/dnspod/dnspod-dns
 ```
