@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"net/url"
 	"os"
+	"path"
 	"strings"
 
 	"github.com/go-ini/ini"
@@ -104,8 +105,14 @@ func ddns(dnspodinfo dnspod) *status {
 // 从配置文件读取dnspod信息和邮箱信息
 func getconfig() *config {
 	dnspodconfig := new(config)
-	ini.MapTo(dnspodconfig, "config.ini")
+	ini.MapTo(dnspodconfig, configpath())
 	return dnspodconfig
+}
+
+//
+func configpath() string {
+	dir, _ := path.Split(os.Args[0])
+	return dir + "config.ini"
 }
 
 // 有时间完善如下内容
