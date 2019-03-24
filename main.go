@@ -50,16 +50,19 @@ func init() {
 }
 
 func main() {
-	oldip, _ := ioutil.ReadFile(ipfile)
-	ip := getip()
-	if ip == string(oldip) {
-		os.Exit(0)
-	}
+	/*
+		ip := getip()
+		oldip, _ := ioutil.ReadFile(ipfile)
+		if ip == string(oldip) {
+			os.Exit(0)
+		}
+	*/
 	config := getconfig()
 	ddns(config.Dndpod)
-	os.Truncate(ipfile, 0)
-	ioutil.WriteFile(ipfile, []byte(ip), 0644)
-	// fmt.Println(ip)
+	/*
+		os.Truncate(ipfile, 0)
+		ioutil.WriteFile(ipfile, []byte(ip), 0644)
+	*/
 }
 
 // 获取当前公网ip
